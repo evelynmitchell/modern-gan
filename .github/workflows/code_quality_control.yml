@@ -1,0 +1,56 @@
+name: Linting and Formatting
+# this project will need a CODEQUALITY secret to write back code formatting changes
+# You will need to configure this in github:
+#   Settings
+#     Secrets and Variables
+#       Actions
+#         Repository secret
+#           If your security policy prohibits this, then do the code formatting
+#           linting locally on your dev box, and not in a gh action
+ #          - make a new one named CODEQUALITY with read write permissions
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint_and_format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          # this project will need a CODEQUALITY secret to write back code formatting changes
+          token: ${{ secrets.CODEQUALITY }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install --no-cache-dir -r requirements.txt
+
+      - name: Install autopep8
+        run: pip install --upgrade autopep8
+      
+      - name: Install black
+        run: pip install black pre-commit
+
+      - name: Find Python files
+        run: find . -name "*.py" -type f -exec autopep8 --in-place --aggressive --aggressive {} +
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git commit -m "Auto-format Python code" || echo "No changes to commit"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          # this project will need a CODEQUALITY secret to write back code formatting changes
+          github_token: ${{ secrets.CODEQUALITY }}
+          branch: ${{ github.ref }}

@@ -1,0 +1,40 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security Issue (Private)
+    url: mailto:<user@email.addr>
+    about: Please report critical security issues via email
+  - name: Discussion
+    url: <url>
+    about: For general questions and discussions
+
+# Template Configuration
+templates:
+  - name: Bug Report
+    about: Report a bug in <PROJECT_NAME>
+    template: bug_report.md
+    title: "[BUG] "
+    labels: ["bug"]
+  
+  - name: Feature Request
+    about: Suggest an idea for <PROJECT_NAME>
+    template: feature_request.md
+    title: "[FEATURE] "
+    labels: ["enhancement"]
+  
+  - name: Task
+    about: Create a new development task
+    template: task.md
+    title: "[TASK] "
+    labels: ["task"]
+  
+  - name: Security Issue
+    about: Report a security concern
+    template: security_issue.md
+    title: "[SECURITY] "
+    labels: ["security"]
+  
+  - name: Documentation Update
+    about: Suggest documentation improvements
+    template: docs.md
+    title: "[DOCS] "
+    labels: ["documentation"]

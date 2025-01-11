@@ -1,0 +1,50 @@
+name: Docker Build Test
+
+on:
+  push:
+    paths-ignore:
+      - 'aider/website/**'
+      - README.md
+      - HISTORY.md
+    branches:
+      - main
+  pull_request:
+    paths-ignore:
+      - 'aider/website/**'
+      - README.md
+    branches:
+      - main
+
+# copy most of these steps from release.yml, but push: false and no tags:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v3
+      
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Build Docker standard image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        file: ./docker/Dockerfile
+        platforms: linux/amd64,linux/arm64
+        push: false
+        target: aider
+
+    - name: Build Docker full image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        file: ./docker/Dockerfile
+        platforms: linux/amd64,linux/arm64
+        push: false
+        target: aider-full
