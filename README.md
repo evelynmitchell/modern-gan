@@ -7,19 +7,18 @@ An implementation of The GAN is dead; long live the GAN! A Modern GAN Baseline (
 
 ## Installation
 
-I've given instructions for either uv or pip. You can use either of them. 
+I've given instructions for either uv or pip. You can use either of them.i
+
+The colab notebook is the easiest: modern-gan/modern_gan.ipynb
 
 ### uv Installation
-
-Create a virtual evironment for python:
-
 
 Checkout the code and run from source: 
 
 ```bash
 git clone https://github.com/evelynmitchell/modern-gan.git
 cd modern-gan
-uv run --python 3.12  modern-gan/src/package/main.py --system
+uv run --python 3.12 --with torch --with loguru modern-gan/src/package/main.py --system
 ```
 
 ### pip Installation
@@ -56,7 +55,7 @@ uv run --python 3.12  modern-gan/src/package/main.py --system
 ### Code Quality 🧹
 
 
-This project uses poetry, venv and pre-commit hooks.
+This project uses uv and pre-commit hooks.
 
 Once on project set up run:
 ```
