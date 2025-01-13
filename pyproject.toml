@@ -3,16 +3,16 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
-name = "paper"
+name = "modern-gan"
 version = "0.0.1"
-description = "Paper - Pytorch"
+description = "Modern GAN - Pytorch"
 license = "MIT"
 authors = ["Evelyn Mitchell <efmphone@gmail.com"]
-homepage = "https://github.com/evelynmmitchell/paper"
-documentation = "https://github.com/evelynmitchell/paper"  # Add this if you have documentation.
+homepage = "https://github.com/evelynmmitchell/modern-gan"
+documentation = "https://github.com/evelynmitchell/modern-gan"  # Add this if you have documentation.
 readme = "README.md"  # Assuming you have a README.md
-repository = "https://github.com/evelynmitchell/paper"
-keywords = ["artificial intelligence", "deep learning", "optimizers", "Prompt Engineering"]
+repository = "https://github.com/evelynmitchell/modern-gan"
+keywords = ["GAN", "Generative Adversarial Network","Image ML", "artificial intelligence" ]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
@@ -23,7 +23,10 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.10"
-
+torch = "*"
+typing = "*"
+loguru = "*"
+dataclasses = "*"
 
 [tool.poetry.dev-dependencies]
 # Add development dependencies here

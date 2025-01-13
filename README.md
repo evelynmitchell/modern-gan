@@ -1,24 +1,57 @@
 
 
-# Python Package Template
-A easy, reliable, fluid template for python packages complete with docs, testing suites, readme's, github workflows, linting and much much more
+# Modern GANs
+
+An implementation of The GAN is dead; long live the GAN! A Modern GAN Baseline (https://arxiv.org/abs/2501.05441) in PyTorch
 
 
 ## Installation
 
-You can install the package using pip
+I've given instructions for either uv or pip. You can use either of them. 
+
+### uv Installation
+
+Create a virtual evironment for python:
+
+
+Checkout the code and run from source: 
 
 ```bash
-pip install -e .
+git clone https://github.com/evelynmitchell/modern-gan.git
+cd modern-gan
+uv run --python 3.12  modern-gan/src/package/main.py --system
 ```
+
+### pip Installation
+
+Create a virtual environment for python:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
+
+Checkout the code and install from source: 
+
+```bash
+git clone https://github.com/evelynmitchell/modern-gan.git
+cd modern-gan
+pip install . --system
+```
+
+## Generate Image Samples
+
+The StyeGAN2 model (baseline) is trained on the FFHQ dataset (https://huggingface.co/datasets/student/FFHQ). There are other versions of StyleGAN at https://nvlabs.github.io/stylegan2/versions.html
+
+The code for generating samples in the StyleGAN2 paper is proprietary to NVIDIA. We can generate samples using another method. If you want to replicate the original paper, you will need to use the original code.
+
 
 # Usage
-```python
-print("hello world")
-
+```bash
+git clone https://github.com/evelynmitchell/modern-gan.git
+cd modern-gan
+uv run --python 3.12  modern-gan/src/package/main.py --system
 ```
-
-
 
 ### Code Quality 🧹
 

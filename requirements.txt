@@ -1,2 +1,6 @@
 torch
+typing
+loguru
+dataclasses
+
 
