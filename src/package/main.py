@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from typing import Tuple, List
+from typing import List
 from loguru import logger
 from dataclasses import dataclass
 
