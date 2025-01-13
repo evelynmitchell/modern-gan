@@ -1,5 +1,4 @@
-import torch
-import torch.nn as nn
+from torch import nn
 from typing import List
 from loguru import logger
 from dataclasses import dataclass
