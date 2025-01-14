@@ -1,8 +1,8 @@
 import os
 import torch
-import torch.nn as nn
+from torch import nn
 import torch.nn.functional as F
-import torch.optim as optim
+from torch import optim
 from torch.utils.data import DataLoader
 from torchvision import transforms, datasets
 from typing import Optional, Dict, Any
@@ -215,7 +215,7 @@ class GANTrainer:
         z = torch.randn(num_samples, self.config.latent_dim).to(self.device)
         
         # Generate with different truncation values
-        for trunc in [0.5, 0.7, 1.0]:
+        for trunc in (0.5, 0.7, 1.0):
             samples = self.generator_ema.model(
                 z * trunc
             )
