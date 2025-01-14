@@ -3,7 +3,7 @@ from torch import nn
 from typing import List
 from loguru import logger
 from dataclasses import dataclass
-
+# noqa: C0303
 @dataclass
 class ModelConfig:
     """Configuration for the GAN model.

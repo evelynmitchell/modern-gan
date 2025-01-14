@@ -1,6 +1,5 @@
 import argparse
 from pathlib import Path
-import torch
 from loguru import logger
 
 from src.package.main import ModelConfig
