@@ -1,18 +1,16 @@
-import os
 import torch
-from torch import nn
 import torch.nn.functional as F
 from torch import optim
 from torch.utils.data import DataLoader
 from torchvision import transforms, datasets
-from typing import Optional, Dict, Any
+from typing import Optional, Dict
 from pathlib import Path
 import numpy as np
 from tqdm import tqdm
 from loguru import logger
 
 from .main import Generator, Discriminator, ModelConfig
-from .utils import EMA, compute_gradient_penalty, save_checkpoint, load_checkpoint, save_image_grid
+from .utils import EMA, save_checkpoint, load_checkpoint, save_image_grid
 
 class GANTrainer:
     """Modern GAN Trainer implementation."""
