@@ -1,8 +1,7 @@
 import torch
-import torch.nn as nn
-from typing import Optional, List, Tuple
+from torch import nn
+from typing import Optional, List
 from pathlib import Path
-import numpy as np
 from loguru import logger
 
 from .main import Generator, ModelConfig
