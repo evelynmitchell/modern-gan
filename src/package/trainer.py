@@ -12,7 +12,7 @@ from tqdm import tqdm
 from loguru import logger
 
 from .main import Generator, Discriminator, ModelConfig
-from .utils import EMA, compute_gradient_penalty, save_checkpoint, load_checkpoint
+from .utils import EMA, compute_gradient_penalty, save_checkpoint, load_checkpoint, save_image_grid
 
 class GANTrainer:
     """Modern GAN Trainer implementation."""
