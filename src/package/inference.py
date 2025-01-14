@@ -1,5 +1,4 @@
 import torch
-from torch import nn
 from typing import Optional, List
 from pathlib import Path
 from loguru import logger
