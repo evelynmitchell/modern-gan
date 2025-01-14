@@ -9,7 +9,7 @@ An implementation of The GAN is dead; long live the GAN! A Modern GAN Baseline (
 
 I've given instructions for either uv or pip. You can use either of them.
 
-The colab notebook is the easiest: modern-gan/modern_gan.ipynb
+The notebook is the easiest: [![Open with marimo](https://marimo.io/shield.svg)](https://marimo.app/https://github.com/evelynmitchell/modern-gan/blob/main/modern_gan.ipynb) modern-gan/modern_gan.ipynb
 
 ### uv Installation
 
