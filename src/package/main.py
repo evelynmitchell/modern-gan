@@ -181,10 +181,17 @@ class Generator(nn.Module):
             
         return blocks
 
-    def forward(self, z: torch.Tensor) -> torch.Tensor:
+    def forward(
+        self,
+        z: torch.Tensor,
+        z2: Optional[torch.Tensor] = None,
+        mixing_point: Optional[int] = None
+    ) -> torch.Tensor:
         """
         Args:
             z: Input noise tensor of shape [batch_size, latent_dim]
+            z2: Optional second noise tensor for style mixing
+            mixing_point: If provided with z2, switch to z2 latents after this stage
             
         Returns:
             Generated images of shape [batch_size, img_channels, img_size, img_size]
@@ -196,7 +203,11 @@ class Generator(nn.Module):
         x = self.basis.repeat(batch_size, 1, 1, 1) * mod
         
         # Process through stages
-        for stage in self.stages:
+        for i, stage in enumerate(self.stages):
+            # Switch to second latent if mixing
+            if z2 is not None and mixing_point is not None and i == mixing_point:
+                z = z2
+            
             for block in stage:
                 x = block(x)
                 logger.trace(f"Shape after block: {x.shape}")
