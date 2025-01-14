@@ -1,11 +1,8 @@
 import torch
-import torch.nn as nn
-from torch.nn import functional as F
+from torch import nn
 from pathlib import Path
-from typing import Optional, Dict, Any
 import torchvision
 from PIL import Image
-import numpy as np
 
 class EMA:
     """Exponential Moving Average of model parameters."""
