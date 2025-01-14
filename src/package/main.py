@@ -1,10 +1,13 @@
+# noqa: C0303
+""" This is a simple example of a modern GAN model using PyTorch."""
+
 import torch
 from torch import nn
-from typing import List, Optional
+from typing import List
 from loguru import logger
 from dataclasses import dataclass
-# noqa: C0303
-@dataclass
+303
+taclass
 class ModelConfig:
     """Configuration for the GAN model.
     
